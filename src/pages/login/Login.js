@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './Login.css';
 
 export default function Login({ history }) {
   const [login, setLogin] = useState({ email: '', password: '' });
@@ -25,35 +26,45 @@ export default function Login({ history }) {
   };
 
   return (
-    <form>
-      <label htmlFor="emailLogin">
-        <input
-          id="emailLogin"
-          type="email"
-          name="email"
-          value={ email }
-          data-testid="email-input"
-          onChange={ handleChange }
-        />
-      </label>
-      <label htmlFor="passwordLogin">
-        <input
-          id="passwordLogin"
-          type="password"
-          name="password"
-          value={ password }
-          data-testid="password-input"
-          onChange={ handleChange }
-        />
-      </label>
-      <button
-        type="submit"
-        data-testid="login-submit-btn"
-        onClick={ onLoginBtnClick }
-        disabled={ checkLogin() }
-      >
-        Entrar
-      </button>
+    <form className="login-page">
+      <div className="backgroundImage-login" />
+      <div className="login-page-inner-container">
+        <div className="login-input-container">
+          <label htmlFor="emailLogin" className="login-input-label">
+            <input
+              id="emailLogin"
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              className="login-input"
+              value={ email }
+              data-testid="email-input"
+              onChange={ handleChange }
+            />
+          </label>
+          <label htmlFor="passwordLogin" className="login-input-label">
+            <input
+              id="passwordLogin"
+              type="password"
+              name="password"
+              className="login-input"
+              placeholder="Password"
+              value={ password }
+              data-testid="password-input"
+              onChange={ handleChange }
+            />
+          </label>
+        </div>
+        <button
+          className="login-button"
+          type="button"
+          data-testid="login-submit-btn"
+          onClick={ onLoginBtnClick }
+          disabled={ checkLogin() }
+        >
+          Cook!
+        </button>
+      </div>
     </form>
   );
 }

@@ -3,6 +3,7 @@ import React from 'react';
 import profileIcon from '../images/profileIcon.svg';
 import SearchBar from './SearchBar';
 import createTitle from './helpers/createTitle';
+import './CSS/Header.css';
 
 export default function Header(props) {
   const {
@@ -14,29 +15,40 @@ export default function Header(props) {
   const { location: { pathname } } = history;
 
   return (
-    <header>
-      <button
-        type="button"
-        onClick={ pathname === '/profile'
-          ? () => history.push('/foods')
-          : () => history.push('/profile') }
-      >
-        <img
-          src={ profileIcon }
-          alt="profileIcon"
-          data-testid="profile-top-btn"
-        />
-      </button>
-      <h3 data-testid="page-title">{ createTitle(currentPage) }</h3>
-      <div>
+    <header className="header-container">
+      <div className="profile-page-container">
         <button
           type="button"
+          className="profile-button-header"
+          onClick={ pathname === '/profile'
+            ? () => history.push('/foods')
+            : () => history.push('/profile') }
+        >
+          <img
+            src={ profileIcon }
+            className="profile-button-img"
+            alt="profileIcon"
+            data-testid="profile-top-btn"
+          />
+        </button>
+        <h3
+          data-testid="page-title"
+          className="page-title"
+        >
+          { createTitle(currentPage) }
+        </h3>
+      </div>
+      <div className="path-container">
+        <button
+          type="button"
+          className="path-button-header"
           onClick={ () => history.push('/favorite-recipes') }
         >
           Favorites
         </button>
         <button
           type="button"
+          className="path-button-header"
           onClick={ () => history.push('/done-recipes') }
         >
           Done
