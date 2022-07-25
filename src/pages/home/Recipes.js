@@ -8,7 +8,7 @@ export default function Recipes(props) {
   const { history } = props;
   const { location: { pathname } } = history;
   return (
-    <div>
+    <div className="recipe-page">
       <Header
         currentPage={ pathname === '/foods' ? 'foods' : 'drinks' }
         history={ history }

@@ -6,6 +6,7 @@ import './CSS/Footer.css';
 
 export default function Footer() {
   const history = useHistory();
+  const { location: { pathname } } = history;
   return (
     <footer
       data-testid="footer"
@@ -14,7 +15,9 @@ export default function Footer() {
       <button
         type="button"
         data-testid="drinks-bottom-btn"
-        className="footer-button"
+        className={ `footer-button ${pathname === '/drinks'
+          ? 'selected-footer'
+          : ''}` }
         onClick={ () => history.push('/drinks') }
         src={ drinkIcon }
       >
@@ -23,7 +26,9 @@ export default function Footer() {
       <button
         type="button"
         data-testid="food-bottom-btn"
-        className="footer-button"
+        className={ `footer-button ${pathname === '/foods'
+          ? 'selected-footer'
+          : ''}` }
         onClick={ () => history.push('/foods') }
         src={ mealIcon }
       >

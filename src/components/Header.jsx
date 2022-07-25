@@ -6,6 +6,7 @@ import createTitle from './helpers/createTitle';
 import './CSS/Header.css';
 
 export default function Header(props) {
+  const PATHSELECTED = 'header-selected-path';
   const {
     currentPage,
     history,
@@ -14,9 +15,26 @@ export default function Header(props) {
 
   const { location: { pathname } } = history;
 
+  const backGroundSwitch = () => {
+    switch (pathname) {
+    case '/foods':
+      return 'food-background';
+    case '/drinks':
+      return 'drink-background';
+    default:
+      return '';
+    }
+  };
+
   return (
-    <header className="header-container">
+    <header
+      className={ `header-container ${
+        pathname === '/foods' || pathname === '/drinks'
+          ? ''
+          : 'header-container-red'}` }
+    >
       <div className="profile-page-container">
+        <div className={ `page-title-blur ${backGroundSwitch()}` } />
         <button
           type="button"
           className="profile-button-header"
@@ -42,21 +60,27 @@ export default function Header(props) {
         <div className="path-inner-container">
           <button
             type="button"
-            className="path-button-header"
+            className={ `path-button-header ${pathname === '/favorite-recipes'
+              ? PATHSELECTED
+              : ''}` }
             onClick={ () => history.push('/favorite-recipes') }
           >
             Favorite
           </button>
           <button
             type="button"
-            className="path-button-header"
+            className={ `path-button-header ${pathname === '/done-recipes'
+              ? PATHSELECTED
+              : ''}` }
             onClick={ () => history.push('/done-recipes') }
           >
             Done
           </button>
           <button
             type="button"
-            className="path-button-header"
+            className={ `path-button-header ${pathname === '/foods'
+              ? PATHSELECTED
+              : ''}` }
             onClick={ () => history.push('/foods') }
           >
             Home

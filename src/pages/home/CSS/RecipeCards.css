@@ -1,33 +1,60 @@
 /* Let the style begin */
 
+.recipe-page {
+  background-color: rgb(149, 189, 149, 0.4);
+  min-height: 100vh;
+}
+
 .recipe-cards-container {
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  margin-bottom: 100px;
+  padding-bottom: 40px;
   width: 100%;
 }
 
-.recipe-card {
+.recipe-card-home {
   align-items: center;
   display: flex;
-  height: 200px;
+  min-height: 200px;
   justify-content: center;
   width: 100%;
 }
 
+.recipe-card-link {
+  width: 90%;
+  text-decoration: none;
+  color: rgb(214, 90, 81);
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.recipe-card-name {
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .recipe-card-img {
-  max-height: 200px;
   width: 30%;
+  border: solid 5px rgb(214, 90, 81);
+  border-radius: 25px;
 }
 
 .recipe-card-text {
+  box-sizing: border-box;
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 1;
   justify-content: center;
+  text-align: center;
+}
+
+.recipe-card-extra p {
+  padding: 10px;
 }
 
 .recipe-card-extra {
@@ -35,4 +62,29 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  color: black;
+}
+
+.recipe-card-loading {
+  font-size: 4em;
+  font-family: 'Dancing Script', cursive;
+  color: rgb(214, 90, 81);
+  font-weight: 700;
+}
+
+@media only screen and ( min-width: 700px ) {
+  .recipe-card-link {
+    margin: 30px;
+    font-size: 2em;
+  }
+}
+
+@media only screen and ( max-width: 300px) {
+  .recipe-card-extra {
+    flex-flow: column nowrap;
+  }
+  .recipe-card-extra p {
+    padding: 0;
+    margin: 2px;
+  }
 }
