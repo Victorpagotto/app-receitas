@@ -1,5 +1,5 @@
 .header-container {
-  background-color: rgb(95, 143, 95, 0.8);
+  background-color: rgb(214, 90, 81, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,15 +19,55 @@
 .profile-button-header {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
+  border: solid 5px rgb(95, 143, 95, 0.6);
 }
 
 .page-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.5em;
+  padding-right: 60px;
+  font-size: 2.2em;
   height: 50px;
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+  font-weight: 900;
+}
+
+.path-container {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.path-inner-container {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgb(95, 143, 95);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.path-button-header {
+  background-color: rgb(214, 90, 81);
+  padding: 5px 10px;
+  color: white;
+  border-radius: 10px;
+  border: solid 1px white;
+  font-size: 0.8em;
+}
+
+.path-button-header:active, .path-button-header:hover {
+  background-color: white;
+  color: rgb(214, 90, 81);
+  border: solid 1px rgb(214, 90, 81);
 }

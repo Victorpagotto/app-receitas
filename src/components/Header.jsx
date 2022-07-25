@@ -39,20 +39,29 @@ export default function Header(props) {
         </h3>
       </div>
       <div className="path-container">
-        <button
-          type="button"
-          className="path-button-header"
-          onClick={ () => history.push('/favorite-recipes') }
-        >
-          Favorites
-        </button>
-        <button
-          type="button"
-          className="path-button-header"
-          onClick={ () => history.push('/done-recipes') }
-        >
-          Done
-        </button>
+        <div className="path-inner-container">
+          <button
+            type="button"
+            className="path-button-header"
+            onClick={ () => history.push('/favorite-recipes') }
+          >
+            Favorite
+          </button>
+          <button
+            type="button"
+            className="path-button-header"
+            onClick={ () => history.push('/done-recipes') }
+          >
+            Done
+          </button>
+          <button
+            type="button"
+            className="path-button-header"
+            onClick={ () => history.push('/foods') }
+          >
+            Home
+          </button>
+        </div>
       </div>
       { isSearchBar && <SearchBar
         history={ history }

@@ -4,10 +4,14 @@ import propTypes from 'prop-types';
 import mealAPI from '../services/mealAPI';
 import drinkAPI from '../services/drinkAPI';
 import { AppContext } from '../store';
+import eyeIcon from '../images/CSS/eye-icon.png';
 import searchIcon from '../images/searchIcon.svg';
 import CategoryBar from './CategoryBar';
+import './CSS/SearchBar.css';
 
 export default function SearchBar(props) {
+  const LABELSELECT = 'search-radio-selected';
+  const LABELNOTSELECTED = 'search-radio-label';
   const { changeContext } = useContext(AppContext);
   const [searchState, setSearchState] = useState({
     showSearch: false,
@@ -65,91 +69,133 @@ export default function SearchBar(props) {
     setSearchState({ ...searchState, filter: selectedFilter });
   };
 
+  const getPlaceholder = () => {
+    switch (searchType) {
+    case 'byIngredient':
+      return 'Search ingredient';
+    case 'byLetter':
+      return 'Search first letter';
+    default:
+      return 'Search name';
+    }
+  };
+
   return (
-    <div>
-      <div>
-        <button
-          type="button"
-          onClick={ () => setSearchState({ ...searchState, showSearch: !showSearch }) }
-        >
-          <img
-            src={ searchIcon }
-            alt="searchIcon"
-            data-testid="search-top-btn"
-          />
-        </button>
+    <div className="search-container">
+      <div className="search-inner-container">
         { showSearch && (
-          <input
-            type="text"
-            data-testid="search-input"
-            placeholder="search"
-            name="searchInput"
-            value={ searchInput }
-            onChange={ handleChange }
-          />
+          <div className="search-options-container">
+            <div className="search-text">
+              <input
+                type="text"
+                data-testid="search-input"
+                className="search-text-input"
+                placeholder={ getPlaceholder() }
+                name="searchInput"
+                value={ searchInput }
+                onChange={ handleChange }
+              />
+            </div>
+            <div className="search-radio-container">
+              <label
+                htmlFor="ingredientSearch"
+                className={ searchType === 'byIngredient'
+                  ? LABELSELECT
+                  : LABELNOTSELECTED }
+              >
+                <input
+                  type="radio"
+                  className="search-radio"
+                  id="ingredientSearch"
+                  name="searchType"
+                  data-testid="ingredient-search-radio"
+                  onChange={ handleChange }
+                  value="byIngredient"
+                  checked={ searchType === 'byIngredient' }
+                />
+                Ingredient
+              </label>
+              <label
+                htmlFor="nameSearch"
+                className={ searchType === 'byName'
+                  ? LABELSELECT
+                  : LABELNOTSELECTED }
+              >
+                <input
+                  type="radio"
+                  className="search-radio"
+                  id="nameSearch"
+                  name="searchType"
+                  data-testid="name-search-radio"
+                  onChange={ handleChange }
+                  value="byName"
+                  checked={ searchType === 'byName' }
+                />
+                Name
+              </label>
+              <label
+                htmlFor="firstLetterSearch"
+                className={ searchType === 'byLetter'
+                  ? LABELSELECT
+                  : LABELNOTSELECTED }
+              >
+                <input
+                  type="radio"
+                  className="search-radio"
+                  id="firstLetterSearch"
+                  name="searchType"
+                  data-testid="first-letter-search-radio"
+                  onChange={ handleChange }
+                  value="byLetter"
+                  checked={ searchType === 'byLetter' }
+                />
+                First Letter
+              </label>
+            </div>
+          </div>
         ) }
-      </div>
-      {showSearch && (
-        <div>
-          <label htmlFor="ingredientSearch">
-            <input
-              type="radio"
-              id="ingredientSearch"
-              name="searchType"
-              data-testid="ingredient-search-radio"
-              onChange={ handleChange }
-              value="byIngredient"
-              checked={ searchType === 'byIngredient' }
-            />
-            Ingredient
-          </label>
-          <label htmlFor="nameSearch">
-            <input
-              type="radio"
-              id="nameSearch"
-              name="searchType"
-              data-testid="name-search-radio"
-              onChange={ handleChange }
-              value="byName"
-              checked={ searchType === 'byName' }
-            />
-            Name
-          </label>
-          <label htmlFor="firstLetterSearch">
-            <input
-              type="radio"
-              id="firstLetterSearch"
-              name="searchType"
-              data-testid="first-letter-search-radio"
-              onChange={ handleChange }
-              value="byLetter"
-              checked={ searchType === 'byLetter' }
-            />
-            First Letter
-          </label>
+        <div className="search-button-container">
           <button
             type="button"
-            data-testid="exec-search-btn"
-            onClick={ () => {
-              setFilter('');
-              if (searchInput.length > 1 && searchType === 'byLetter') {
-                global.alert('Your search must have only 1 (one) character');
-              } else {
-                searchRecipe();
-              }
-            } }
+            className={ `search-button ${showSearch
+              ? 'selected-button'
+              : ''}` }
+            onClick={ () => setSearchState({ ...searchState, showSearch: !showSearch }) }
           >
-            Search
+            <img
+              src={ eyeIcon }
+              alt="searchIcon"
+              data-testid="search-top-btn"
+            />
           </button>
+          { showSearch && (
+            <button
+              type="button"
+              className="search-button"
+              data-testid="exec-search-btn"
+              onClick={ () => {
+                setFilter('');
+                if (searchInput.length > 1 && searchType === 'byLetter') {
+                  global.alert('Your search must have only 1 (one) character');
+                } else {
+                  searchRecipe();
+                }
+              } }
+            >
+              <img src={ searchIcon } alt="search button" />
+            </button>
+          )}
+        </div>
+      </div>
+      { showSearch && (
+        <div>
+          <CategoryBar
+            currentPage={ currentPage }
+            setFilter={ setFilter }
+            filter={ filter }
+          />
         </div>
       )}
-      <div>
-        <CategoryBar
-          currentPage={ currentPage }
-          setFilter={ setFilter }
-          filter={ filter }
-        />
-      </div>
     </div>
   );
 }

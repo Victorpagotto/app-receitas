@@ -38,11 +38,22 @@ export default function CategoryBar(props) {
     });
   };
 
+  if (categories.length === 0) {
+    return (
+      <div className="categories-container">
+        <p className="loading-categories">Loading...</p>
+      </div>
+    );
+  }
+
   return (
-    <div>
+    <div className="categories-container">
       <button
         type="button"
         data-testid="All-category-filter"
+        className={ `category-button ${filter === ''
+          ? 'selected-category'
+          : ''}` }
         onClick={ () => {
           setFilter('');
           searchAll();
@@ -57,6 +68,9 @@ export default function CategoryBar(props) {
             data-testid={ `${item.Category}-category-filter` }
             key={ `${item.Category}-${i}` }
             value={ item.Category }
+            className={ `category-button ${filter === item.Category
+              ? 'selected-category'
+              : ''}` }
             onClick={ (e) => {
               if (filter === e.target.value) {
                 setFilter('');

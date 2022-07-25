@@ -52,7 +52,7 @@ width: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
-.login-input:focus {
+.login-input:focus, .login-input:-webkit-autofill:focus {
   background-color: rgb(214, 90, 81);
   outline: none;
 }
