@@ -9,6 +9,8 @@ import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
 import shareIcon from '../../images/shareIcon.svg';
 import getFavorites from '../../components/helpers/getFavorites';
 import { addFavorite, removeFavorite } from '../../components/helpers/readsfavorite';
+import './RecipeDetails.css';
+import '../../components/CSS/Recipe.css';
 
 const copy = require('clipboard-copy');
 
@@ -85,97 +87,116 @@ export default function RecipeDetails(props) {
     }, +'2000');
   };
 
+  const categoryText = () => (
+    `${foodObject.Alcoholic || foodObject.Category} ${foodObject.Meal
+      ? 'dish'
+      : 'drink'}`
+  );
+
+  const instructionsFormat = (str) => (
+    str.split('\r\n')
+  );
+
   return (
-    <div
-      style={ {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-      } }
-    >
-      <div>
+    <div className="details-page-container">
+      <div className="recipe-container">
+        <div className="upper-body-recipe">
+          <p
+            data-testid="recipe-category"
+            className="recipe-category"
+          >
+            {categoryText()}
+          </p>
+          <h3
+            data-testid="recipe-title"
+            className="recipe-name"
+          >
+            { foodObject.Drink || foodObject.Meal }
+          </h3>
+        </div>
         <img
-          width="250px"
           src={ foodObject.DrinkThumb || foodObject.MealThumb }
           alt={ foodObject.Drink || foodObject.Meal }
           data-testid="recipe-photo"
+          className="recipe-image"
         />
-        <h3
-          data-testid="recipe-title"
-        >
-          { foodObject.Drink || foodObject.Meal }
-        </h3>
-        <button
-          type="button"
-          style={ {
-            border: 'none',
-            background: 'transparent',
-          } }
-          onClick={ onFavoriteBtnClick }
-        >
-          <img
-            data-testid="favorite-btn"
-            src={ heartImg ? blackHeartIcon : whiteHeartIcon }
-            alt="favorite"
-            width="17px"
-          />
-        </button>
-        <div>
+        <div className="details-button-container">
           <button
             type="button"
-            style={ {
-              border: 'none',
-              background: 'transparent',
-            } }
+            onClick={ onFavoriteBtnClick }
+          >
+            <img
+              data-testid="favorite-btn"
+              src={ heartImg ? blackHeartIcon : whiteHeartIcon }
+              alt="favorite"
+              width="17px"
+            />
+          </button>
+          <button
+            type="button"
             onClick={ shareHandle }
           >
-            <img data-testid="share-btn" src={ shareIcon } alt="share" width="17px" />
+            <img
+              data-testid="share-btn"
+              src={ shareIcon }
+              alt="share"
+              width="17px"
+            />
           </button>
+          <div className="popUp-container">
+            {
+              popUp && (
+                <span>Link copied!</span>
+              )
+            }
+          </div>
+        </div>
+        <div className="ingredient-list-container-details">
+          <div className="list-inner-container">
+            <ul className="ingredient-list-details">
+              {
+                foodObject.ingredients.map((item, index) => (
+                  <li
+                    key={ index }
+                    data-testid={ `${index}-ingredient-name-and-measure` }
+                  >
+                    { `${item.measure} of ${item.ingredient}` }
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+        <div className="instructions-container-details">
+          { instructionsFormat(foodObject.Instructions).map((item, i) => (
+            <p
+              className="instructions-details"
+              data-testid="instructions"
+              key={ `instruction-item${i}` }
+            >
+              { item }
+            </p>
+          ))}
+        </div>
+        <div className="video-container-details">
           {
-            popUp && (
-              <span>Link copied!</span>
-            )
+            path[0] === 'foods' && <iframe
+              title={ `${foodObject.Meal || foodObject.Drink}-video` }
+              width="420"
+              height="315"
+              data-testid="video"
+              src={ foodObject.Youtube }
+            />
           }
         </div>
-        <p
-          data-testid="recipe-category"
-        >
-          { foodObject.Alcoholic || foodObject.Category }
-        </p>
-        <ul>
-          {
-            foodObject.ingredients.map((item, index) => (
-              <li
-                key={ index }
-                data-testid={ `${index}-ingredient-name-and-measure` }
-              >
-                { `${item.measure} of ${item.ingredient}` }
-              </li>
-            ))
-          }
-        </ul>
-        <p data-testid="instructions">{ foodObject.Instructions }</p>
-        {
-          path[0] === 'foods' && <iframe
-            title={ `${foodObject.Meal || foodObject.Drink}-video` }
-            width="420"
-            height="315"
-            data-testid="video"
-            src={ foodObject.Youtube }
-          />
-        }
       </div>
       <Carousel recommendation={ recommendation } />
-      <div>
+      <div className="button-start-continue-contaier">
         {
           doneState() && (
             <button
               type="button"
               data-testid="start-recipe-btn"
-              style={ {
-                position: 'fixed',
-                bottom: '0',
-              } }
               onClick={ () => history.push(`${pathname}/in-progress`) }
             >
               { recipeState() ? 'Continue Recipe' : 'Start Recipe'}

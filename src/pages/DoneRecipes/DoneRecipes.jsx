@@ -10,6 +10,7 @@ from '../../components/RecipeCardComponents/RecipeCardGoToButton';
 import RecipeCardImg from '../../components/RecipeCardComponents/RecipeCardImg';
 import RecipeCardShareButton, { setPopUpInit }
 from '../../components/RecipeCardComponents/RecipeCardShareButton';
+import '../../components/CSS/done-favorite.css';
 
 export default function DoneRecipes() {
   const getDone = () => {
@@ -21,19 +22,37 @@ export default function DoneRecipes() {
   };
   const [data, setData] = useState(getDone());
   const [popUp, setPopUp] = useState(setPopUpInit());
+  const [filterSelect, setFilterSelect] = useState('all');
   const history = useHistory();
 
   return (
-    <div>
+    <div className="done-page">
       <Header
         currentPage="Done Recipes"
         history={ history }
         isSearchBar={ false }
       />
-      <div>
-        <FilterButtonAll setState={ setData } target="doneRecipes" />
-        <FilterButtonType type="food" setState={ setData } target="doneRecipes" />
-        <FilterButtonType type="drink" setState={ setData } target="doneRecipes" />
+      <div className="filter-buttons-list">
+        <FilterButtonAll
+          setState={ setData }
+          target="doneRecipes"
+          chosenFilter={ filterSelect }
+          setFilter={ setFilterSelect }
+        />
+        <FilterButtonType
+          type="food"
+          setState={ setData }
+          target="doneRecipes"
+          chosenFilter={ filterSelect }
+          setFilter={ setFilterSelect }
+        />
+        <FilterButtonType
+          type="drink"
+          setState={ setData }
+          target="doneRecipes"
+          chosenFilter={ filterSelect }
+          setFilter={ setFilterSelect }
+        />
       </div>
       <div>
         {

@@ -27,8 +27,8 @@ export default function Login({ history }) {
 
   return (
     <form className="login-page">
-      <div className="backgroundImage-login" />
       <div className="login-page-inner-container">
+        <h1 className="site-title">CookACookie</h1>
         <div className="login-input-container">
           <label htmlFor="emailLogin" className="login-input-label">
             <input

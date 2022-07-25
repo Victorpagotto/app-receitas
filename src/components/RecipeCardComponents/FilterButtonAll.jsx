@@ -6,12 +6,18 @@ function filteredAll(target) {
 }
 
 export default function FilterButtonAll(props) {
-  const { setState, target } = props;
+  const { setState, target, chosenFilter, setFilter } = props;
   return (
     <button
       type="button"
       data-testid="filter-by-all-btn"
-      onClick={ () => setState(filteredAll(target)) }
+      className={ `filter-button ${chosenFilter === 'all'
+        ? 'selected-filter-button'
+        : ''}` }
+      onClick={ () => {
+        setState(filteredAll(target));
+        setFilter('all');
+      } }
     >
       All
     </button>
@@ -21,4 +27,6 @@ export default function FilterButtonAll(props) {
 FilterButtonAll.propTypes = {
   setState: propTypes.func.isRequired,
   target: propTypes.string.isRequired,
+  chosenFilter: propTypes.string.isRequired,
+  setFilter: propTypes.func.isRequired,
 };

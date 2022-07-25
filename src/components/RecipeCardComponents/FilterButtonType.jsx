@@ -8,12 +8,18 @@ function filterType(type, target) {
 }
 
 export default function FilterButtonType(props) {
-  const { type, setState, target } = props;
+  const { type, setState, target, chosenFilter, setFilter } = props;
   return (
     <button
       type="button"
       data-testid={ `filter-by-${type}-btn` }
-      onClick={ () => setState(filterType(type, target)) }
+      className={ `filter-button ${chosenFilter === type
+        ? 'selected-filter-button'
+        : ''}` }
+      onClick={ () => {
+        setState(filterType(type, target));
+        setFilter(type);
+      } }
     >
       {createTitle(type)}
     </button>
@@ -24,4 +30,6 @@ FilterButtonType.propTypes = {
   type: propTypes.string.isRequired,
   setState: propTypes.func.isRequired,
   target: propTypes.string.isRequired,
+  chosenFilter: propTypes.string.isRequired,
+  setFilter: propTypes.func.isRequired,
 };

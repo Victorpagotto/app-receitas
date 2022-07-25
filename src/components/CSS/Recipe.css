@@ -1,0 +1,79 @@
+.recipe-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper-body-recipe {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  background-color: rgb(214, 90, 81);
+  color: white;
+}
+
+.recipe-category {
+  margin-bottom: 0;
+  font-size: 2em;
+  font-family: 'Dancing Script', cursive;
+}
+
+.recipe-name {
+  margin-top: 10px;
+  font-size: 4em;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+}
+
+.recipe-image {
+  width: 100%;
+}
+
+.details-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(95, 143, 95);
+}
+
+.details-button-container button {
+  width: 50px;
+  height: 50px;
+  margin: 20px 5px 0;
+  border: solid 3px white;
+  border-radius: 10px;
+  background-color: rgb(173, 214, 173);
+}
+
+.popUp-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  font-size: 1.2em;
+  color: white;
+}
+
+.instructions-container-details {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: white;
+  color: rgb(214, 90, 81);
+  font-size: 1.2em;
+  font-weight: 600;
+  border-bottom: solid 50px rgb(95, 143, 95);
+}
+
+.instructions-container-details p {
+  text-align: justify;
+  margin-top: 10px;
+}

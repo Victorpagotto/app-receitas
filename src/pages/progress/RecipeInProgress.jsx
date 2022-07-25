@@ -13,6 +13,7 @@ import './CSS/Progress.css';
 import IngredientsList from './IngredientsList';
 import addDoneRecipe from './addDoneRecipe';
 import unDoneRecipe from './unDoneRecipe';
+import '../../components/CSS/Recipe.css';
 
 const copy = require('clipboard-copy');
 
@@ -77,6 +78,11 @@ export default function Progress() {
     else addFavorite(prodInfo);
     setProgressState({ ...progressState, isFavorite: !progressState.isFavorite });
   };
+  const categoryText = () => (
+    `${prodInfo.Alcoholic || prodInfo.Category} ${prodInfo.Meal
+      ? 'dish'
+      : 'drink'}`
+  );
   if (prodInfo === 'notFound') {
     return <NotFound />;
   }
@@ -84,73 +90,81 @@ export default function Progress() {
     return <h1>Loading...</h1>;
   }
   return (
-    <div>
-      <div>
-        <h1
-          data-testid="recipe-title"
-        >
-          { prodInfo.Meal || prodInfo.Drink }
-        </h1>
-      </div>
-      <div>
+    <div className="details-page-container">
+      <div className="recipe-container">
+        <div className="upper-body-recipe">
+          <p
+            data-testid="recipe-category"
+            className="recipe-category"
+          >
+            {categoryText()}
+          </p>
+          <h3
+            data-testid="recipe-title"
+            className="recipe-name"
+          >
+            { prodInfo.Drink || prodInfo.Meal }
+          </h3>
+        </div>
         <img
-          src={ prodInfo.MealThumb || prodInfo.DrinkThumb }
-          alt={ prodInfo.Meal || prodInfo.Drink }
+          src={ prodInfo.DrinkThumb || prodInfo.MealThumb }
+          alt={ prodInfo.Drink || prodInfo.Meal }
           data-testid="recipe-photo"
+          className="recipe-image"
         />
       </div>
-      <div>
-        <div>
-          <button
-            type="button"
+      <div className="details-button-container">
+        <button
+          type="button"
+          onClick={ favoriteHandle }
+        >
+          <img
+            data-testid="favorite-btn"
+            src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
+            alt="favorite"
+            width="17px"
+          />
+        </button>
+        <button
+          type="button"
+          onClick={ shareHandle }
+        >
+          <img
             data-testid="share-btn"
-            onClick={ shareHandle }
             src={ shareIcon }
-          >
-            <img
-              src={ shareIcon }
-              alt="share icon"
-            />
-          </button>
+            alt="share"
+            width="17px"
+          />
+        </button>
+        <div className="popUp-container">
           {
             popUp && (
               <span>Link copied!</span>
             )
           }
         </div>
-        <button
-          type="button"
-          data-testid="favorite-btn"
-          onClick={ favoriteHandle }
-          src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-        >
-          <img src={ isFavorite ? blackHeartIcon : whiteHeartIcon } alt="heart" />
-        </button>
       </div>
-      <div>
-        <p data-testid="recipe-category">
-          {prodInfo.Alcoholic || prodInfo.Category}
-        </p>
+      <IngredientsList
+        ingredients={ prodInfo.ingredients }
+        checkList={ checkList }
+        checkHandle={ checkHandle }
+      />
+      <div className="instructions-container-details">
+        { prodInfo.Instructions.split('\r\n').map((item, i) => (
+          <p
+            className="instructions-details"
+            data-testid="instructions"
+            key={ `instruction-item-${i}` }
+          >
+            { item }
+          </p>
+        ))}
       </div>
-      <div>
-        <IngredientsList
-          ingredients={ prodInfo.ingredients }
-          checkList={ checkList }
-          checkHandle={ checkHandle }
-        />
-      </div>
-      <div>
-        <h2>Instructions</h2>
-        <p
-          data-testid="instructions"
-        >
-          { prodInfo.Instructions }
-        </p>
-      </div>
-      <div>
+      <div className="finish-button-container">
         <button
           type="button"
           data-testid="finish-recipe-btn"
+          className="finish-button"
           disabled={ prodInfo.ingredients.length !== checkList.length }
           onClick={ () => {
             addDoneRecipe(prodInfo);

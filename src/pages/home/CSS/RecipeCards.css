@@ -72,19 +72,37 @@
   font-weight: 700;
 }
 
-@media only screen and ( min-width: 700px ) {
-  .recipe-card-link {
-    margin: 30px;
-    font-size: 2em;
-  }
-}
-
-@media only screen and ( max-width: 300px) {
+@media screen and ( max-width: 300px ) {
   .recipe-card-extra {
     flex-flow: column nowrap;
   }
   .recipe-card-extra p {
     padding: 0;
     margin: 2px;
+  }
+}
+
+@media screen and ( min-width: 600px ) {
+}
+
+@media screen and ( min-width: 600px ) {
+  .recipe-card-link {
+    margin: 30px;
+    font-size: 2em;
+  }
+  .recipe-card-img {
+    width: 20%;
+  }
+  .recipe-card-name {
+    padding: 40px;
+  }
+}
+
+@media screen and ( min-width: 900px ) {
+}
+
+@media screen and ( min-width: 1100px ) {
+  .recipe-card-img {
+    width: 15%;
   }
 }

@@ -188,13 +188,11 @@ export default function SearchBar(props) {
         </div>
       </div>
       { showSearch && (
-        <div>
-          <CategoryBar
-            currentPage={ currentPage }
-            setFilter={ setFilter }
-            filter={ filter }
-          />
-        </div>
+        <CategoryBar
+          currentPage={ currentPage }
+          setFilter={ setFilter }
+          filter={ filter }
+        />
       )}
     </div>
   );
