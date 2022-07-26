@@ -1,4 +1,5 @@
 const formatTags = (tagStr) => {
+  if (tagStr === '') return [];
   const tagArray = tagStr.split(',');
   return tagArray;
 };

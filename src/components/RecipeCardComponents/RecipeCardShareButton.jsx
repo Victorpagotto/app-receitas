@@ -36,13 +36,9 @@ export const popUpUpdate = (popUp, setState) => {
 export default function RecipeCardShareButton(props) {
   const { id, state, setState, popUp, type, index, page } = props;
   return (
-    <div>
+    <div className="share-button-container">
       <button
         type="button"
-        style={ {
-          border: 'none',
-          background: 'transparent',
-        } }
         onClick={ async () => {
           copy(`${window.location.href
             .split(page)[0]}/${type}s/${id}`);
@@ -58,7 +54,9 @@ export default function RecipeCardShareButton(props) {
       </button>
       {
         popUp && (
-          <span data-testid="span-shared">Link copied!</span>
+          <div className="share-button-popUp-container">
+            <span data-testid="span-shared">Link copied!</span>
+          </div>
         )
       }
     </div>

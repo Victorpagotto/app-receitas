@@ -1,31 +1,31 @@
 .recipe-container {
-  width: 100%;
+  align-items: center;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
 .upper-body-recipe {
-  width: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-flow: column nowrap;
   background-color: rgb(214, 90, 81);
   color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .recipe-category {
-  margin-bottom: 0;
+  font-family: Dancing Script , cursive;
   font-size: 2em;
-  font-family: 'Dancing Script', cursive;
+  margin-bottom: 0;
 }
 
 .recipe-name {
-  margin-top: 10px;
+  font-family: Dancing Script , cursive;
   font-size: 4em;
-  font-family: 'Dancing Script', cursive;
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -34,46 +34,61 @@
 }
 
 .details-button-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   background-color: rgb(95, 143, 95);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .details-button-container button {
-  width: 50px;
-  height: 50px;
-  margin: 20px 5px 0;
+  background-color: rgb(173, 214, 173);
   border: solid 3px white;
   border-radius: 10px;
-  background-color: rgb(173, 214, 173);
+  height: 50px;
+  margin: 20px 5px 0;
+  width: 50px;
 }
 
 .popUp-container {
-  width: 100%;
-  display: flex;
   align-items: center;
+  color: white;
+  display: flex;
+  font-size: 1.2em;
   justify-content: center;
   min-height: 30px;
-  font-size: 1.2em;
-  color: white;
+  width: 100%;
 }
 
 .instructions-container-details {
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  width: 100%;
   background-color: white;
+  border-bottom: solid 50px rgb(95, 143, 95);
+  box-sizing: border-box;
   color: rgb(214, 90, 81);
   font-size: 1.2em;
   font-weight: 600;
-  border-bottom: solid 50px rgb(95, 143, 95);
+  padding: 20px;
+  width: 100%;
 }
 
 .instructions-container-details p {
-  text-align: justify;
   margin-top: 10px;
+  text-align: justify;
+}
+
+@media screen and ( min-width : 600px ) {
+
+  .recipe-category {
+    font-size: 3.5em;
+  }
+
+  .recipe-name {
+    font-size: 7em;
+    margin-bottom: 50px;
+  }
+
+  .instructions-container-details {
+    font-size: 2em;
+  }
 }

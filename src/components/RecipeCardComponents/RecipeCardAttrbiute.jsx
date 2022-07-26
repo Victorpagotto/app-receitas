@@ -8,7 +8,7 @@ export default function RecipeCardAttribute(props) {
     <span
       data-testid={ `${index}-horizontal-top-text` }
     >
-      { `${itemOne} - ${itemTwo}` }
+      { `${itemOne} ${itemTwo}` }
     </span>
   );
 }

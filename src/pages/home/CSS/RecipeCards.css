@@ -1,5 +1,4 @@
 /* Let the style begin */
-
 .recipe-page {
   background-color: rgb(149, 189, 149, 0.4);
   min-height: 100vh;
@@ -17,35 +16,35 @@
 .recipe-card-home {
   align-items: center;
   display: flex;
-  min-height: 200px;
   justify-content: center;
+  min-height: 200px;
   width: 100%;
 }
 
 .recipe-card-link {
-  width: 90%;
-  text-decoration: none;
   color: rgb(214, 90, 81);
-  font-weight: 700;
   font-size: 1em;
+  font-weight: 700;
+  text-decoration: none;
+  width: 90%;
 }
 
 .recipe-card-name {
-  font-size: 1.1em;
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: 1.1em;
   justify-content: center;
 }
 
 .recipe-card-img {
-  width: 30%;
   border: solid 5px rgb(214, 90, 81);
   border-radius: 25px;
+  width: 30%;
 }
 
 .recipe-card-text {
-  box-sizing: border-box;
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 1;
@@ -59,49 +58,56 @@
 
 .recipe-card-extra {
   align-items: center;
+  color: black;
   display: flex;
   justify-content: space-around;
   width: 100%;
-  color: black;
 }
 
 .recipe-card-loading {
-  font-size: 4em;
-  font-family: 'Dancing Script', cursive;
   color: rgb(214, 90, 81);
+  font-family: Dancing Script , cursive;
+  font-size: 4em;
   font-weight: 700;
 }
 
-@media screen and ( max-width: 300px ) {
+@media screen and ( max-width : 300px ) {
+
   .recipe-card-extra {
     flex-flow: column nowrap;
   }
+
   .recipe-card-extra p {
-    padding: 0;
     margin: 2px;
+    padding: 0;
   }
 }
 
-@media screen and ( min-width: 600px ) {
+@media screen and ( min-width : 600px ) {
+
+  .recipe-card-link:last-child {
+    margin-bottom: 90px;
+  }
 }
 
-@media screen and ( min-width: 600px ) {
+@media screen and ( min-width : 600px ) {
+
   .recipe-card-link {
-    margin: 30px;
     font-size: 2em;
+    margin: 30px;
   }
+
   .recipe-card-img {
     width: 20%;
   }
+
   .recipe-card-name {
     padding: 40px;
   }
 }
 
-@media screen and ( min-width: 900px ) {
-}
+@media screen and ( min-width : 1100px ) {
 
-@media screen and ( min-width: 1100px ) {
   .recipe-card-img {
     width: 15%;
   }

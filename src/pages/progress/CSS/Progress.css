@@ -1,23 +1,22 @@
 .progress-list-container {
-  width: 100%;
-  padding: 30px 0;
+  align-items: center;
+  background-color: rgb(95, 143, 95, 0.6);
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   justify-content: start;
-  box-sizing: border-box;
   overflow-x: scroll;
-  background-color: rgb(95, 143, 95, 0.6);
+  padding: 30px 0;
+  width: 100%;
 }
 
 .progress-list-inner-container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   padding: 0 30px;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .progress-list-inner-container input {
@@ -25,66 +24,73 @@
 }
 
 .progress-list-inner-container ul {
-  list-style: none;
+  align-items: stretch;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
-  align-items: stretch;
   flex-grow: 1;
-  padding: 0;
+  justify-content: center;
+  list-style: none;
   margin: 0;
+  padding: 0;
   width: 100%;
 }
 
 .label-check {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  margin: 5px 0;
-  border-radius: 10px;
-  padding: 5px;
   border: solid 3px white;
+  border-radius: 10px;
   box-sizing: border-box;
   color: white;
+  display: flex;
+  font-size: 1.4em;
   font-weight: 700;
   height: 80px;
-  font-size: 1.4em;
+  justify-content: center;
+  margin: 5px 0;
+  padding: 5px;
+  width: 100%;
 }
 
 .finish-button-container {
-  width: 100%;
-  height: 80px;
-  display: flex;
   align-items: center;
-  justify-content: center;
   background-color: rgb(95, 143, 95, 0.3);
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  width: 100%;
 }
 
 .finish-button {
-  width: 50%;
-  height: 60px;
   background-color: rgb(214, 90, 81);
-  color: white;
   border: solid 5px white;
   border-radius: 20px;
+  color: white;
+  font-family: Dancing Script , cursive;
   font-size: 2.2em;
-  font-family: 'Dancing Script', cursive;
   font-weight: 600;
+  height: 60px;
+  width: 50%;
 }
 
 .finish-button:disabled {
   background-color: rgb(214, 90, 81, 0.6);
-  color: rgb(255, 255, 255, 0.6);
   border: solid 5px rgb(255, 255, 255, 0.6);
+  color: rgb(255, 255, 255, 0.6);
 }
 
 .finish-button:active {
+  background-color: white;
   border: solid 5px rgb(214, 90, 81);
   color: rgb(214, 90, 81);
-  background-color: white;
 }
 
 .label-checked {
   background-color: rgb(214, 90, 81);
+}
+
+@media screen and ( min-width : 600px ) {
+
+  .label-check {
+    font-size: 2.5em;
+  }
 }

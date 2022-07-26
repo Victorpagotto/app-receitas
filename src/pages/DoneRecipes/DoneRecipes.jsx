@@ -54,17 +54,62 @@ export default function DoneRecipes() {
           setFilter={ setFilterSelect }
         />
       </div>
-      <div>
+      <div className="recipe-cards-container">
         {
           data.map((item, index) => (
-            <div key={ item.id }>
-              <RecipeCardImg
-                image={ item.image }
-                recipe={ item.name }
-                index={ index }
-                type={ item.type }
-                id={ item.id }
-              />
+            <div key={ item.id } className="recipe-card">
+              <div className="date-container">
+                <span
+                  className="done-date"
+                  data-testid={ `${index}-horizontal-done-date` }
+                >
+                  <span>Made in</span>
+                  { item.doneDate }
+                </span>
+              </div>
+              <div className="recipe-card-inner-container">
+                <div className="recipe-img-container">
+                  <RecipeCardImg
+                    image={ item.image }
+                    recipe={ item.name }
+                    index={ index }
+                    type={ item.type }
+                    id={ item.id }
+                  />
+                </div>
+                <div className="recipe-card-text-container">
+                  <div className="attribute-container">
+                    <RecipeCardAttribute
+                      index={ index }
+                      items={ [item.nationality || item.alcoholicOrNot, item.category] }
+                    />
+                  </div>
+                  <div className="recipe-card-name-container">
+                    <RecipeCardGoToButton
+                      index={ index }
+                      type={ item.type }
+                      id={ item.id }
+                      itemName={ item.name }
+                    />
+                  </div>
+                  {
+                    item.tags.length > 0 && (
+                      <div className="tag-list">
+                        {
+                          item.tags.map((tag) => (
+                            <span
+                              data-testid={ `${index}-${tag}-horizontal-tag` }
+                              key={ `${index}-${tag}` }
+                            >
+                              { tag }
+                            </span>
+                          ))
+                        }
+                      </div>
+                    )
+                  }
+                </div>
+              </div>
               <RecipeCardShareButton
                 id={ item.id }
                 state={ popUp }
@@ -74,35 +119,6 @@ export default function DoneRecipes() {
                 index={ index }
                 page="/done-recipes"
               />
-              <div>
-                <RecipeCardAttribute
-                  index={ index }
-                  items={ [item.nationality || item.alcoholicOrNot, item.category] }
-                />
-                <RecipeCardGoToButton
-                  index={ index }
-                  type={ item.type }
-                  id={ item.id }
-                  itemName={ item.name }
-                />
-                <span
-                  data-testid={ `${index}-horizontal-done-date` }
-                >
-                  { item.doneDate }
-                </span>
-                <div>
-                  {
-                    item.tags.map((tag) => (
-                      <span
-                        data-testid={ `${index}-${tag}-horizontal-tag` }
-                        key={ `${index}-${tag}` }
-                      >
-                        { tag }
-                      </span>
-                    ))
-                  }
-                </div>
-              </div>
             </div>
           ))
         }

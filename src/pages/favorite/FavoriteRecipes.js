@@ -62,16 +62,44 @@ export default function FavoriteRecipes() {
           setFilter={ setFilterSelect }
         />
       </div>
-      <div>
+      <div className="recipe-cards-container">
         { data.map((item, index) => (
-          <div key={ item.id }>
-            <RecipeCardImg
-              image={ item.image }
-              recipe={ item.name }
-              index={ index }
-              type={ item.type }
-              id={ item.id }
-            />
+          <div key={ item.id } className="recipe-card">
+            <div className="recipe-fav-container">
+              <RecipeCardFavoriteButton
+                id={ item.id }
+                setState={ setData }
+                popUp={ popUp }
+                setPopUp={ setPopUp }
+                index={ index }
+                isFavorite
+              />
+              <RecipeCardGoToButton
+                index={ index }
+                type={ item.type }
+                id={ item.id }
+                itemName={ item.name }
+              />
+            </div>
+            <div className="recipe-card-inner-container">
+              <div className="recipe-img-container">
+                <RecipeCardImg
+                  image={ item.image }
+                  recipe={ item.name }
+                  index={ index }
+                  type={ item.type }
+                  id={ item.id }
+                />
+              </div>
+              <div className="recipe-card-text-container">
+                <div className="attribute-container">
+                  <RecipeCardAttribute
+                    index={ index }
+                    items={ [item.nationality || item.alcoholicOrNot, item.category] }
+                  />
+                </div>
+              </div>
+            </div>
             <RecipeCardShareButton
               id={ item.id }
               state={ popUp }
@@ -80,24 +108,6 @@ export default function FavoriteRecipes() {
               type={ item.type }
               index={ index }
               page="/favorite-recipes"
-            />
-            <RecipeCardFavoriteButton
-              id={ item.id }
-              setState={ setData }
-              popUp={ popUp }
-              setPopUp={ setPopUp }
-              index={ index }
-              isFavorite
-            />
-            <RecipeCardAttribute
-              index={ index }
-              items={ [item.nationality || item.alcoholicOrNot, item.category] }
-            />
-            <RecipeCardGoToButton
-              index={ index }
-              type={ item.type }
-              id={ item.id }
-              itemName={ item.name }
             />
           </div>
         ))}

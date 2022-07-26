@@ -9,13 +9,9 @@ export default function RecipeCardImg(props) {
     <button
       type="button"
       onClick={ () => history.push(`/${type}s/${id}`) }
-      style={ {
-        border: 'none',
-        background: 'transparent',
-      } }
+      className="recipeCard-image"
     >
       <img
-        width="250px"
         src={ image }
         alt={ recipe }
         data-testid={ `${index}-horizontal-image` }
