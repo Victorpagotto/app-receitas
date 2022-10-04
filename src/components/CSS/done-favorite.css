@@ -55,14 +55,16 @@
   align-items: center;
   box-sizing: border-box;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: space-between;
   margin-top: 10px;
   width: 100%;
 }
 
 .recipe-img-container {
+  margin-bottom: 10px;
   min-width: 30vw;
-  padding-left: 3%;
+  padding-left: 0;
   width: 30vw;
 }
 
@@ -191,6 +193,7 @@
   justify-content: space-around;
   padding: 10px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .tag-list span {
@@ -198,10 +201,25 @@
   border-radius: 10px;
   color: white;
   padding: 5px;
+  flex-grow: 1;
+  text-align: center;
+  margin: 3px;
 }
 
 .fav-recipe-card {
   flex-flow: column nowrap;
+}
+
+@media screen and ( min-width : 361px ) {
+  
+  .recipe-card-inner-container {
+    flex-flow: row nowrap;
+  }
+
+  .recipe-img-container {
+    padding: 3%;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and ( min-width : 600px ) {
