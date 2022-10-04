@@ -1,5 +1,9 @@
 # 🚧 README em construção 🚧
 
+======================================================
+Projeto Trybe
+======================================================
+
 <!-- Olá, Tryber!
 
 Esse é apenas um arquivo inicial para o README do seu projeto.
