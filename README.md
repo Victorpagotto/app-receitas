@@ -41,7 +41,7 @@
 
 **Name**: Recipe App: Cook a Cookie
 
-**Used Knowledge**: React, CSS, HTML, Javascript, Jest and RTL.
+**Used Knowledges**: React, CSS, HTML, Javascript, Jest and RTL.
 
 **Used Tools**: ESLint, Google Fonts, TheCockTailDB and TheMealDB.
 
@@ -67,7 +67,7 @@
 
 -----------------------
 
-<h3 align="center">Como Instalar</h3>
-<p align="justify">For the project to work properly, it is necessary to have installed Node.js and Git. After that, just clone the repository and run the command "npm install". To start the project, have port 3000 open on your computer's localhost, then run the command "npm start" for the page to be open in your browser.</p>
+<h3 align="center">How to Install</h3>
+<p align="justify">For the project to properly work, it's necessary to have installed Node.js and Git. After that, just clone the repository and run the command "npm install". To start the project, have port 3000 open on your computer's localhost, then run the command "npm start" for the page to be open in your browser.</p>
 
 -----------------------
