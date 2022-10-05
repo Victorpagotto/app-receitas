@@ -23,12 +23,12 @@
 }
 
 .recipe-card-link {
-  color: rgb(214, 90, 81);
+  color: rgb(95, 143, 95);
   font-size: 1em;
   font-weight: 700;
   text-decoration: none;
-  width: 100%;
-  background-color: rgb(149, 189, 149);
+  width: 100%; 
+  background-color: rgb(214, 90, 81, 0.3);
   box-sizing: border-box;
   padding: 0 5%;
   border-top: solid 5px rgb(214, 90, 81);
