@@ -9,6 +9,10 @@
 **Ferramentas usadas**: ESLint, Google Fonts, TheCockTailDB, TheMealDB.
 
 **Número de Pessoas**: 4.
+-----------------------
+
+<p>Este é um projeto desenvolvido a partir de React utilizando-se de Hooks e Context API. Criado para mobile, o aplicativo foi projetado para que nele seja possível ver, filtrar, buscar, favoritar, manter registro de receitas feitas e o progresso de confecção das mesmas, sendo tudo isso possível tanto para bebidas quanto para comidas.</p>
+<p>Para que isso fosse possível, o aplicativo consome duas API's distintias, mas com estruturas semelhantes. Ao longo de 8 dias de projeto, eu e mais três pessoas nos encarregamos de sincronizar horários e compromissos para que pudéssemos, juntos, finalizar o projeto para que o mesmo fosse apresentado em bom estado e com todas as funcionalidades criadas e testadas.</p>
 
 -----------------------
 
