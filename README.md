@@ -9,13 +9,13 @@
 
 -----------------------
 
-Nome: App de Receitas; Cook a Cookie
+**Nome**: App de Receitas; Cook a Cookie
 
-Conhecimentos Usados: React, CSS, HTML, Javascript, Jest, RTL.
+**Conhecimentos Usados**: React, CSS, HTML, Javascript, Jest, RTL.
 
-Ferramentas usadas: ESLint, Google Fonts, TheCockTailDB, TheMealDB.
+**Ferramentas usadas**: ESLint, Google Fonts, TheCockTailDB, TheMealDB.
 
-Número de Pessoas: 4.
+**Número de Pessoas**: 4.
 
 -----------------------
 <!-- Olá, Tryber!
