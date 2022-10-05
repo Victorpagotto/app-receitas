@@ -1,5 +1,6 @@
 <h1 align="center">Cook-a-Cookie, um App de Receitas</h1>
 
+Português
 -----------------------
 
 **Nome**: App de Receitas; Cook a Cookie
