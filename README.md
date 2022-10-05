@@ -29,3 +29,8 @@
   <p>Entretanto, apesar de estes fornecerem uma estrutura básica para o desenvolvimento e teste do que eles requerem, o código relativo à funcionalidade deste projeto foi desenvolvido por alunos.</p>
 
 -----------------------
+
+<h3 align="center">Como Instalar</h3>
+<p>Para o funcionamento correto do projeto, é necessário ter instalado o Node.js e Git. Após isso, apenas clone o repositório e realize o comando "npm install". Para iniciar o projeto, tenha a porta 3000 liberada no localhost de seu computador e então execute o comando "npm start" para que a página se abra em seu navegador. </p>
+
+-----------------------
