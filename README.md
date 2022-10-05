@@ -8,6 +8,16 @@
   Entretanto, apesar de estes fornecerem uma estrutura básica para o desenvolvimento e teste do que eles requerem, o código relativo à funcionalidade deste projeto foi desenvolvido por alunos.
 
 -----------------------
+
+Nome: App de Receitas; Cook a Cookie
+
+Conhecimentos Usados: React, CSS, HTML, Javascript, Jest, RTL.
+
+Ferramentas usadas: ESLint, Google Fonts, TheCockTailDB, TheMealDB.
+
+Número de Pessoas: 4.
+
+-----------------------
 <!-- Olá, Tryber!
 
 Esse é apenas um arquivo inicial para o README do seu projeto.
