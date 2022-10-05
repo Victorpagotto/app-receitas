@@ -61,7 +61,7 @@
 
 <h3 align="center">Projeto Trybe</h3>
 
-  <p align="justify">A Trybe project is a project which was done during my stay as a Trybe student. This is a 100% online course focused on web development, but it touches parts of other areas, trying to provide more tools.</p>
+  <p align="justify">A Trybe project is a project which was done during my time as a Trybe student. This is a 100% online course focused on web development, but it touches parts of other areas, trying to provide more tools.</p>
   <p align="justify">Such projects happen at the end of blocks throughout the course, with the aim of solidifying the knowledge acquired along  it. These projects are made from requirements that must be met, which seek to imitate those made to the professionals in the work environment. These requirements need to be implemented, and this is tested through automatic tests provided by Trybe.</p>
   <p align="justify">However, although these provide a basic framework for developing and testing for what they require, the code related to the functionality of these project are developed by students.</p>
 
