@@ -79,12 +79,13 @@
 
 .search-text-input {
   background-color: rgb(255, 255, 255, 0.6);
-  border: solid 2px rgb(214, 90, 81, 0.6);
   border-radius: 20px;
+  border: solid 2px rgb(214, 90, 81, 0.6);
   color: rgb(214, 90, 81);
   font-size: 1.2em;
   font-weight: 700;
   height: 30px;
+  margin-bottom: 10px;
   min-width: 220px;
   text-align: center;
   width: 100%;
@@ -137,6 +138,8 @@
 .search-radio-label, .search-radio-selected {
   margin: auto;
   min-width: 90%;
+  padding: 10px 0;
+  margin-bottom: 10px;
 }
 
 .search-button-container {
