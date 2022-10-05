@@ -1,7 +1,7 @@
 <h1 align="center">Cook-a-Cookie, um App de Receitas</h1>
 
 <h2 align="center">Português</h2>
------------------------
+
 
 **Nome**: App de Receitas: Cook a Cookie
 
@@ -37,7 +37,7 @@
 -----------------------
 
 <h2 align="center">English</h2>
------------------------
+
 
 **Name**: Recipe App: Cook a Cookie
 
